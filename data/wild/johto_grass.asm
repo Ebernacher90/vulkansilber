@@ -1556,21 +1556,21 @@ JohtoGrassWildMons:
 	map_id ROUTE_29
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 2, PIDGEY
+	db 2, SCHWALBINI
 	db 3, SENTRET
-	db 3, PIDGEY
+	db 3, SCHWALBINI
 	db 2, SENTRET
 	db 4, RATTATA
-	db 4, PIDGEY
-	db 4, PIDGEY
+	db 4, SCHWALBINI
+	db 4, SCHWALBINI
 	; day
-	db 2, PIDGEY
+	db 2, SCHWALBINI
 	db 3, SENTRET
-	db 3, PIDGEY
+	db 3, SCHWALBINI
 	db 2, SENTRET
 	db 4, RATTATA
-	db 4, PIDGEY
-	db 4, PIDGEY
+	db 4, SCHWALBINI
+	db 4, SCHWALBINI
 	; nite
 	db 2, HOOTHOOT
 	db 3, HOOTHOOT

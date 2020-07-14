@@ -314,21 +314,21 @@ KantoGrassWildMons:
 
 	IF DEF(_GOLD)
 	; morn
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, RATTATA
-	db 8, SPEAROW
+	db 8, SCHWALBINI
 	db 6, JIGGLYPUFF
 	db 10, RATTATA
-	db 8, SPEAROW
-	db 8, SPEAROW
+	db 8, SCHWALBINI
+	db 8, SCHWALBINI
 	; day
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, RATTATA
-	db 8, SPEAROW
+	db 8, SCHWALBINI
 	db 6, JIGGLYPUFF
 	db 10, RATTATA
-	db 8, SPEAROW
-	db 8, SPEAROW
+	db 8, SCHWALBINI
+	db 8, SCHWALBINI
 	; nite
 	db 5, RATTATA
 	db 5, ZUBAT
@@ -340,21 +340,21 @@ KantoGrassWildMons:
 
 	ELIF DEF(_SILVER)
 	; morn
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, RATTATA
 	db 8, EKANS
 	db 6, JIGGLYPUFF
 	db 10, ARBOK
-	db 8, SPEAROW
-	db 8, SPEAROW
+	db 8, SCHWALBINI
+	db 8, SCHWALBINI
 	; day
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, RATTATA
 	db 8, EKANS
 	db 6, JIGGLYPUFF
 	db 10, ARBOK
-	db 8, SPEAROW
-	db 8, SPEAROW
+	db 8, SCHWALBINI
+	db 8, SCHWALBINI
 	; nite
 	db 5, RATTATA
 	db 5, ZUBAT
@@ -371,23 +371,23 @@ KantoGrassWildMons:
 
 	IF DEF(_GOLD)
 	; morn
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, RATTATA
-	db 8, SPEAROW
+	db 8, SCHWALBINI
 	db 6, JIGGLYPUFF
 	db 10, RATTATA
-	db 8, SPEAROW
-	db 8, SPEAROW
+	db 8, SCHWALBINI
+	db 8, SCHWALBINI
 	; day
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, RATTATA
-	db 8, SPEAROW
+	db 8, SCHWALBINI
 	db 6, JIGGLYPUFF
 	db 10, RATTATA
-	db 8, SPEAROW
-	db 8, SPEAROW
+	db 8, SCHWALBINI
+	db 8, SCHWALBINI
 	; nite
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, ZUBAT
 	db 8, RATTATA
 	db 6, JIGGLYPUFF
@@ -397,21 +397,21 @@ KantoGrassWildMons:
 
 	ELIF DEF(_SILVER)
 	; morn
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, RATTATA
 	db 8, EKANS
 	db 6, JIGGLYPUFF
 	db 10, ARBOK
-	db 8, SPEAROW
-	db 8, SPEAROW
+	db 8, SCHWALBINI
+	db 8, SCHWALBINI
 	; day
-	db 5, SPEAROW
+	db 5, SCHWALBINI
 	db 5, RATTATA
 	db 8, EKANS
 	db 6, JIGGLYPUFF
 	db 10, ARBOK
-	db 8, SPEAROW
-	db 8, SPEAROW
+	db 8, SCHWALBINI
+	db 8, SCHWALBINI
 	; nite
 	db 5, RATTATA
 	db 5, ZUBAT
@@ -540,7 +540,7 @@ KantoGrassWildMons:
 	IF DEF(_GOLD)
 	; morn
 	db 17, RATTATA
-	db 17, SPEAROW
+	db 17, SCHWALBINI
 	db 18, GROWLITHE
 	db 19, RATICATE
 	db 19, RATTATA
@@ -548,7 +548,7 @@ KantoGrassWildMons:
 	db 15, RATTATA
 	; day
 	db 17, RATTATA
-	db 17, SPEAROW
+	db 17, SCHWALBINI
 	db 18, GROWLITHE
 	db 19, RATICATE
 	db 19, RATTATA
@@ -566,7 +566,7 @@ KantoGrassWildMons:
 	ELIF DEF(_SILVER)
 	; morn
 	db 17, MEOWTH
-	db 17, SPEAROW
+	db 17, SCHWALBINI
 	db 18, VULPIX
 	db 19, RATICATE
 	db 19, PERSIAN
@@ -574,7 +574,7 @@ KantoGrassWildMons:
 	db 15, RATTATA
 	; day
 	db 17, MEOWTH
-	db 17, SPEAROW
+	db 17, SCHWALBINI
 	db 18, VULPIX
 	db 19, RATICATE
 	db 19, PERSIAN
@@ -653,17 +653,17 @@ KantoGrassWildMons:
 	; morn
 	db 13, MANKEY
 	db 15, RATTATA
-	db 13, SPEAROW
+	db 13, SCHWALBINI
 	db 15, RATICATE
-	db 15, FEAROW
+	db 15, SCHWALBOSS
 	db 15, PRIMEAPE
 	db 15, PRIMEAPE
 	; day
 	db 13, MANKEY
 	db 15, RATTATA
-	db 13, SPEAROW
+	db 13, SCHWALBINI
 	db 15, RATICATE
-	db 15, FEAROW
+	db 15, SCHWALBOSS
 	db 15, PRIMEAPE
 	db 15, PRIMEAPE
 	; nite
@@ -678,18 +678,18 @@ KantoGrassWildMons:
 	ELIF DEF(_SILVER)
 	; morn
 	db 13, RATTATA
-	db 15, SPEAROW
-	db 13, SPEAROW
+	db 15, SCHWALBINI
+	db 13, SCHWALBINI
 	db 15, RATICATE
-	db 15, FEAROW
+	db 15, SCHWALBOSS
 	db 15, RATICATE
 	db 15, RATICATE
 	; day
 	db 13, RATTATA
-	db 15, SPEAROW
-	db 13, SPEAROW
+	db 15, SCHWALBINI
+	db 13, SCHWALBINI
 	db 15, RATICATE
-	db 15, FEAROW
+	db 15, SCHWALBOSS
 	db 15, RATICATE
 	db 15, RATICATE
 	; nite
@@ -705,18 +705,18 @@ KantoGrassWildMons:
 	map_id ROUTE_10_NORTH
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 16, SPEAROW
+	db 16, SCHWALBINI
 	db 17, VOLTORB
 	db 16, RATICATE
-	db 18, FEAROW
+	db 18, SCHWALBOSS
 	db 16, QUAGSIRE
 	db 15, ELECTABUZZ
 	db 15, ELECTABUZZ
 	; day
-	db 16, SPEAROW
+	db 16, SCHWALBINI
 	db 17, VOLTORB
 	db 17, RATICATE
-	db 18, FEAROW
+	db 18, SCHWALBOSS
 	db 15, ELECTABUZZ
 	db 17, ELECTABUZZ
 	db 17, ELECTABUZZ
@@ -928,17 +928,17 @@ KantoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 26, GRIMER
-	db 27, FEAROW
+	db 27, SCHWALBOSS
 	db 28, GRIMER
-	db 29, FEAROW
+	db 29, SCHWALBOSS
 	db 27, SLUGMA
 	db 30, MUK
 	db 30, MUK
 	; day
 	db 26, GRIMER
-	db 27, FEAROW
+	db 27, SCHWALBOSS
 	db 28, GRIMER
-	db 29, FEAROW
+	db 29, SCHWALBOSS
 	db 27, SLUGMA
 	db 30, MUK
 	db 30, MUK
@@ -954,18 +954,18 @@ KantoGrassWildMons:
 	map_id ROUTE_17
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 28, FEAROW
+	db 28, SCHWALBOSS
 	db 27, GRIMER
 	db 29, GRIMER
-	db 30, FEAROW
+	db 30, SCHWALBOSS
 	db 29, SLUGMA
 	db 32, MUK
 	db 32, MUK
 	; day
-	db 28, FEAROW
+	db 28, SCHWALBOSS
 	db 27, SLUGMA
 	db 29, GRIMER
-	db 30, FEAROW
+	db 30, SCHWALBOSS
 	db 25, SLUGMA
 	db 32, MUK
 	db 32, MUK
@@ -982,17 +982,17 @@ KantoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 26, GRIMER
-	db 27, FEAROW
+	db 27, SCHWALBOSS
 	db 28, GRIMER
-	db 29, FEAROW
+	db 29, SCHWALBOSS
 	db 27, SLUGMA
 	db 30, MUK
 	db 30, MUK
 	; day
 	db 26, GRIMER
-	db 27, FEAROW
+	db 27, SCHWALBOSS
 	db 28, GRIMER
-	db 29, FEAROW
+	db 29, SCHWALBOSS
 	db 27, SLUGMA
 	db 30, MUK
 	db 30, MUK
@@ -1036,20 +1036,20 @@ KantoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 3, RATTATA
-	db 3, SPEAROW
-	db 5, SPEAROW
+	db 3, SCHWALBINI
+	db 5, SCHWALBINI
 	db 4, DODUO
 	db 6, PONYTA
-	db 7, FEAROW
-	db 7, FEAROW
+	db 7, SCHWALBOSS
+	db 7, SCHWALBOSS
 	; day
 	db 3, RATTATA
-	db 3, SPEAROW
-	db 5, SPEAROW
+	db 3, SCHWALBINI
+	db 5, SCHWALBINI
 	db 4, DODUO
 	db 6, PONYTA
-	db 7, FEAROW
-	db 7, FEAROW
+	db 7, SCHWALBOSS
+	db 7, SCHWALBOSS
 	; nite
 	db 3, RATTATA
 	db 3, RATTATA

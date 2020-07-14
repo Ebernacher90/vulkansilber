@@ -21,8 +21,8 @@ MonMenuIcons:
 	db ICON_BIRD        ; PIDGEOT
 	db ICON_FOX         ; RATTATA
 	db ICON_FOX         ; RATICATE
-	db ICON_BIRD        ; SPEAROW
-	db ICON_BIRD        ; FEAROW
+	db ICON_BIRD        ; SCHWALBINI
+	db ICON_BIRD        ; SCHWALBOSS
 	db ICON_SERPENT     ; EKANS
 	db ICON_SERPENT     ; ARBOK
 	db ICON_PIKACHU     ; PIKACHU

@@ -59,7 +59,6 @@ AlphabeticalPokedexOrder:
 	db EXEGGCUTE
 	db EXEGGUTOR
 	db FARFETCH_D
-	db FEAROW
 	db FERALIGATR
 	db FLAAFFY
 	db FLAREON
@@ -188,6 +187,8 @@ AlphabeticalPokedexOrder:
 	db RHYHORN
 	db SANDSHREW
 	db SANDSLASH
+	db SCHWALBINI
+	db SCHWALBOSS
 	db SCIZOR
 	db SCYTHER
 	db SEADRA
@@ -207,7 +208,6 @@ AlphabeticalPokedexOrder:
 	db SNEASEL
 	db SNORLAX
 	db SNUBBULL
-	db SPEAROW
 	db SPINARAK
 	db SQUIRTLE
 	db STANTLER

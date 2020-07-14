@@ -13,8 +13,8 @@ NewPokedexOrder:
 	db PIDGEY
 	db PIDGEOTTO
 	db PIDGEOT
-	db SPEAROW
-	db FEAROW
+	db SCHWALBINI
+	db SCHWALBOSS
 	db HOOTHOOT
 	db NOCTOWL
 	db RATTATA

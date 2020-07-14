@@ -1755,7 +1755,7 @@ JohtoGrassWildMons:
 	; morn
 	db 6, HOPPIP
 	db 7, RATTATA
-	db 6, SPEAROW
+	db 6, SCHWALBINI
 	db 6, RATTATA
 	db 8, HOPPIP
 	db 4, ZUBAT
@@ -1763,7 +1763,7 @@ JohtoGrassWildMons:
 	; day
 	db 6, HOPPIP
 	db 7, RATTATA
-	db 6, SPEAROW
+	db 6, SCHWALBINI
 	db 6, RATTATA
 	db 8, HOPPIP
 	db 8, RATTATA
@@ -1781,7 +1781,7 @@ JohtoGrassWildMons:
 	; morn
 	db 6, HOPPIP
 	db 7, EKANS
-	db 6, SPEAROW
+	db 6, SCHWALBINI
 	db 6, RATTATA
 	db 8, HOPPIP
 	db 4, ZUBAT
@@ -1789,7 +1789,7 @@ JohtoGrassWildMons:
 	; day
 	db 6, HOPPIP
 	db 7, EKANS
-	db 6, SPEAROW
+	db 6, SCHWALBINI
 	db 6, RATTATA
 	db 8, HOPPIP
 	db 8, RATTATA
@@ -2118,16 +2118,16 @@ JohtoGrassWildMons:
 	; morn
 	db 15, MANKEY
 	db 13, MAREEP
-	db 14, SPEAROW
-	db 16, SPEAROW
+	db 14, SCHWALBINI
+	db 16, SCHWALBINI
 	db 15, FLAAFFY
 	db 17, FLAAFFY
 	db 17, FLAAFFY
 	; day
 	db 15, MANKEY
 	db 13, MAREEP
-	db 14, SPEAROW
-	db 16, SPEAROW
+	db 14, SCHWALBINI
+	db 16, SCHWALBINI
 	db 15, FLAAFFY
 	db 17, FLAAFFY
 	db 17, FLAAFFY
@@ -2143,17 +2143,17 @@ JohtoGrassWildMons:
 	ELIF DEF(_SILVER)
 	; morn
 	db 13, MAREEP
-	db 14, SPEAROW
+	db 14, SCHWALBINI
 	db 15, MAREEP
-	db 16, SPEAROW
+	db 16, SCHWALBINI
 	db 15, FLAAFFY
 	db 17, FLAAFFY
 	db 17, FLAAFFY
 	; day
 	db 13, MAREEP
-	db 14, SPEAROW
+	db 14, SCHWALBINI
 	db 15, MAREEP
-	db 16, SPEAROW
+	db 16, SCHWALBINI
 	db 15, FLAAFFY
 	db 17, FLAAFFY
 	db 17, FLAAFFY
@@ -2281,18 +2281,18 @@ JohtoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 3, GEODUDE
-	db 2, SPEAROW
+	db 2, SCHWALBINI
 	db 2, RATTATA
 	db 2, GEODUDE
-	db 3, SPEAROW
+	db 3, SCHWALBINI
 	db 3, JIGGLYPUFF
 	db 5, JIGGLYPUFF
 	; day
 	db 3, GEODUDE
-	db 2, SPEAROW
+	db 2, SCHWALBINI
 	db 2, RATTATA
 	db 2, GEODUDE
-	db 3, SPEAROW
+	db 3, SCHWALBINI
 	db 3, JIGGLYPUFF
 	db 5, JIGGLYPUFF
 	; nite

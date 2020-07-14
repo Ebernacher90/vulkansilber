@@ -362,8 +362,8 @@ YoungsterGroup:
 	db "SAMUEL@", TRAINERTYPE_NORMAL
 	db  7, RATTATA
 	db 10, SANDSHREW
-	db  8, SPEAROW
-	db  8, SPEAROW
+	db  8, SCHWALBINI
+	db  8, SCHWALBINI
 	db -1 ; end
 
 	; YOUNGSTER (6)
@@ -384,7 +384,7 @@ YoungsterGroup:
 
 	; YOUNGSTER (9)
 	db "WARREN@", TRAINERTYPE_NORMAL
-	db 35, FEAROW
+	db 35, SCHWALBOSS
 	db -1 ; end
 
 	; YOUNGSTER (10)
@@ -527,7 +527,7 @@ BirdKeeperGroup:
 
 	; BIRD_KEEPER (2)
 	db "ABE@", TRAINERTYPE_NORMAL
-	db  9, SPEAROW
+	db  9, SCHWALBINI
 	db -1 ; end
 
 	; BIRD_KEEPER (3)
@@ -554,9 +554,9 @@ BirdKeeperGroup:
 
 	; BIRD_KEEPER (6)
 	db "DENIS@", TRAINERTYPE_NORMAL
-	db 18, SPEAROW
-	db 20, FEAROW
-	db 18, SPEAROW
+	db 18, SCHWALBINI
+	db 20, SCHWALBOSS
+	db 18, SCHWALBINI
 	db -1 ; end
 
 	; BIRD_KEEPER (7)
@@ -573,8 +573,8 @@ BirdKeeperGroup:
 
 	; BIRD_KEEPER (9)
 	db "ROY@", TRAINERTYPE_NORMAL
-	db 29, FEAROW
-	db 35, FEAROW
+	db 29, SCHWALBOSS
+	db 35, SCHWALBOSS
 	db -1 ; end
 
 	; BIRD_KEEPER (10)
@@ -598,7 +598,7 @@ BirdKeeperGroup:
 	db "PETER@", TRAINERTYPE_NORMAL
 	db  6, PIDGEY
 	db  6, PIDGEY
-	db  8, SPEAROW
+	db  8, SCHWALBINI
 	db -1 ; end
 
 	; BIRD_KEEPER (14)
@@ -614,7 +614,7 @@ BirdKeeperGroup:
 	; BIRD_KEEPER (16)
 	db "BRET@", TRAINERTYPE_NORMAL
 	db 32, PIDGEOTTO
-	db 32, FEAROW
+	db 32, SCHWALBOSS
 	db -1 ; end
 
 	; BIRD_KEEPER (17)

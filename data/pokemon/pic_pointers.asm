@@ -42,10 +42,10 @@ PokemonPicPointers::
 	dba_pic RattataBackpic
 	dba_pic RaticateFrontpic
 	dba_pic RaticateBackpic
-	dba_pic SpearowFrontpic
-	dba_pic SpearowBackpic
-	dba_pic FearowFrontpic
-	dba_pic FearowBackpic
+	dba_pic SchwalbiniFrontpic
+	dba_pic SchwalbiniBackpic
+	dba_pic SchwalbossFrontpic
+	dba_pic SchwalbossBackpic
 	dba_pic EkansFrontpic
 	dba_pic EkansBackpic
 	dba_pic ArbokFrontpic

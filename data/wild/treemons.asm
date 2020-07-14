@@ -70,15 +70,15 @@ ENDC
 
 TreeMonSet_Canyon:
 ; common
-	db 50, SPEAROW,    10
-	db 15, SPEAROW,    10
-	db 15, SPEAROW,    10
+	db 50, SCHWALBINI,  10
+	db 15, SCHWALBINI, 10
+	db 15, SCHWALBINI, 10
 	db 10, AIPOM,      10
 	db  5, AIPOM,      10
 	db  5, AIPOM,      10
 	db -1
 ; rare
-	db 50, SPEAROW,    10
+	db 50, SCHWALBINI, 10
 	db 15, HERACROSS,  10
 	db 15, HERACROSS,  10
 	db 10, AIPOM,      10

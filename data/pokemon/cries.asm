@@ -25,8 +25,8 @@ PokemonCries::
 	mon_cry CRY_PIDGEOTTO,    17,  383 ; PIDGEOT
 	mon_cry CRY_RATTATA,       0,  256 ; RATTATA
 	mon_cry CRY_RATTATA,      32,  383 ; RATICATE
-	mon_cry CRY_SPEAROW,       0,  256 ; SPEAROW
-	mon_cry CRY_FEAROW,       64,  288 ; FEAROW
+	mon_cry CRY_SCHWALBINI,    0,  256 ; SCHWALBINI
+	mon_cry CRY_SCHWALBOSS,   64,  288 ; SCHWALBOSS
 	mon_cry CRY_EKANS,        18,  192 ; EKANS
 	mon_cry CRY_EKANS,       224,  144 ; ARBOK
 	mon_cry CRY_BULBASAUR,   238,  129 ; PIKACHU
@@ -87,15 +87,15 @@ PokemonCries::
 	mon_cry CRY_GROWLITHE,     0,  256 ; SLOWBRO
 	mon_cry CRY_METAPOD,     128,  224 ; MAGNEMITE
 	mon_cry CRY_METAPOD,      32,  320 ; MAGNETON
-	mon_cry CRY_SPEAROW,     221,  129 ; FARFETCH_D
+	mon_cry CRY_SCHWALBINI,  221,  129 ; FARFETCH_D
 	mon_cry CRY_DIGLETT,     187,  129 ; DODUO
 	mon_cry CRY_DIGLETT,     153,  160 ; DODRIO
 	mon_cry CRY_SEEL,        136,  320 ; SEEL
 	mon_cry CRY_SEEL,         35,  383 ; DEWGONG
 	mon_cry CRY_GRIMER,        0,  256 ; GRIMER
 	mon_cry CRY_MUK,         239,  383 ; MUK
-	mon_cry CRY_FEAROW,        0,  256 ; SHELLDER
-	mon_cry CRY_FEAROW,      111,  352 ; CLOYSTER
+	mon_cry CRY_SCHWALBOSS,    0,  256 ; SHELLDER
+	mon_cry CRY_SCHWALBOSS,  111,  352 ; CLOYSTER
 	mon_cry CRY_METAPOD,       0,  256 ; GASTLY
 	mon_cry CRY_METAPOD,      48,  192 ; HAUNTER
 	mon_cry CRY_MUK,           0,  383 ; GENGAR
@@ -145,11 +145,11 @@ PokemonCries::
 	mon_cry CRY_GROWLITHE,   240,  129 ; OMANYTE
 	mon_cry CRY_GROWLITHE,   255,  192 ; OMASTAR
 	mon_cry CRY_CATERPIE,    187,  192 ; KABUTO
-	mon_cry CRY_FEAROW,      238,  129 ; KABUTOPS
+	mon_cry CRY_SCHWALBOSS,  238,  129 ; KABUTOPS
 	mon_cry CRY_VILEPLUME,    32,  368 ; AERODACTYL
 	mon_cry CRY_GRIMER,       85,  129 ; SNORLAX
 	mon_cry CRY_RAICHU,      128,  192 ; ARTICUNO
-	mon_cry CRY_FEAROW,      255,  256 ; ZAPDOS
+	mon_cry CRY_SCHWALBOSS,  255,  256 ; ZAPDOS
 	mon_cry CRY_RAICHU,      248,  192 ; MOLTRES
 	mon_cry CRY_BULBASAUR,    96,  192 ; DRATINI
 	mon_cry CRY_BULBASAUR,    64,  256 ; DRAGONAIR

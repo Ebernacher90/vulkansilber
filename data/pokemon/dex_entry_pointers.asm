@@ -20,8 +20,8 @@ PokedexDataPointerTable:
 	dw PidgeotPokedexEntry
 	dw RattataPokedexEntry
 	dw RaticatePokedexEntry
-	dw SpearowPokedexEntry
-	dw FearowPokedexEntry
+	dw SchwalbiniPokedexEntry
+	dw SchwalbossPokedexEntry
 	dw EkansPokedexEntry
 	dw ArbokPokedexEntry
 	dw PikachuPokedexEntry

@@ -18,7 +18,7 @@
 	const CRY_DROWZEE
 	const CRY_PIDGEY
 	const CRY_BULBASAUR
-	const CRY_SPEAROW
+	const CRY_SCHWALBINI
 	const CRY_RHYDON
 	const CRY_GOLEM
 	const CRY_BLASTOISE
@@ -26,7 +26,7 @@
 	const CRY_WEEDLE
 	const CRY_CATERPIE
 	const CRY_EKANS
-	const CRY_FEAROW
+	const CRY_SCHWALBOSS
 	const CRY_CLEFAIRY
 	const CRY_VENONAT
 	const CRY_LAPRAS

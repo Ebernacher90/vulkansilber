@@ -5994,7 +5994,7 @@ LoadEnemyMon:
 ; Pidgey/Spearow are asleep if NITE
 	cp PIDGEY
 	jr z, .sleeping_if_nite
-	cp SPEAROW
+	cp SCHWALBINI
 	jr z, .sleeping_if_nite
 
 ; Other species are never asleep

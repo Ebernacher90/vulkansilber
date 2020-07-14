@@ -21,8 +21,8 @@ KantoMonSpecials:
 	db  70 ; PIDGEOT
 	db  25 ; RATTATA
 	db  50 ; RATICATE
-	db  31 ; SPEAROW
-	db  61 ; FEAROW
+	db  30 ; SCHWALBINI
+	db  75 ; SCHWALBOSS
 	db  40 ; EKANS
 	db  65 ; ARBOK
 	db  50 ; PIKACHU

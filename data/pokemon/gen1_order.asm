@@ -3,7 +3,7 @@ Pokered_MonIndices:
 	db KANGASKHAN
 	db NIDORAN_M
 	db CLEFAIRY
-	db SPEAROW
+	db SCHWALBINI
 	db VOLTORB
 	db NIDOKING
 	db SLOWBRO
@@ -33,7 +33,7 @@ Pokered_MonIndices:
 	db SHUCKLE ; MISSINGNO.
 	db GROWLITHE
 	db ONIX
-	db FEAROW
+	db SCHWALBOSS
 	db PIDGEY
 	db SLOWPOKE
 	db KADABRA

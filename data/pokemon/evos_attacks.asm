@@ -290,31 +290,29 @@ RaticateEvosAttacks:
 	db 40, SUPER_FANG
 	db 0 ; no more level-up moves
 
-SpearowEvosAttacks:
-	db EVOLVE_LEVEL, 20, FEAROW
+SchwalbiniEvosAttacks:
+	db EVOLVE_LEVEL, 22, SCHWALBOSS
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, GROWL
-	db 7, LEER
-	db 13, FURY_ATTACK
-	db 25, PURSUIT
-	db 31, MIRROR_MOVE
-	db 37, DRILL_PECK
-	db 43, AGILITY
+	db 5, FOCUS_ENERGY
+	db 9, QUICK_ATTACK
+	db 13, WING_ATTACK
+	db 17, DOUBLE_TEAM
+	db 29, AGILITY
 	db 0 ; no more level-up moves
 
-FearowEvosAttacks:
+SchwalbossEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, GROWL
-	db 1, LEER
-	db 1, FURY_ATTACK
-	db 7, LEER
-	db 13, FURY_ATTACK
-	db 26, PURSUIT
-	db 32, MIRROR_MOVE
-	db 40, DRILL_PECK
-	db 47, AGILITY
+	db 1, FOCUS_ENERGY
+	db 1, QUICK_ATTACK
+	db 5, FOCUS_ENERGY
+	db 9, QUICK_ATTACK
+	db 13, WING_ATTACK
+	db 17, DOUBLE_TEAM
+	db 33, AGILITY
 	db 0 ; no more level-up moves
 
 EkansEvosAttacks:

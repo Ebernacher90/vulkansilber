@@ -172,22 +172,24 @@ NextChar::
 
 CheckDict::
 dict: MACRO
-if \1 == "<NULL>"
+if \1 == 0
 	and a
 else
 	cp \1
 endc
 
-if STRSUB("\2", 1, 1) == "\""
+if ISCONST(\2)
 ; Replace a character with another one
 	jr nz, ._\@
 	ld a, \2
 ._\@:
-elif STRSUB("\2", 1, 1) == "."
-; Locals can use a short jump
-	jr z, \2
 else
+	if STRSUB("\2", 1, 1) == "."
+	; Locals can use a short jump
+	jr z, \2
+	else
 	jp z, \2
+	endc
 endc
 ENDM
 
@@ -612,7 +614,7 @@ TextCommands::
 	dw TextCommand_PROMPT_BUTTON ; TX_PROMPT_BUTTON
 	dw TextCommand_SCROLL        ; TX_SCROLL
 	dw TextCommand_START_ASM     ; TX_START_ASM
-	dw TextCommand_NUM           ; TX_NUM
+	dw TextCommand_DECIMAL       ; TX_DECIMAL
 	dw TextCommand_PAUSE         ; TX_PAUSE
 	dw TextCommand_SOUND         ; TX_SOUND_DEX_FANFARE_50_79
 	dw TextCommand_DOTS          ; TX_DOTS
@@ -756,8 +758,8 @@ TextCommand_START_ASM::
 ; run assembly code
 	jp hl
 
-TextCommand_NUM::
-; print a number
+TextCommand_DECIMAL::
+; print a decimal number
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]

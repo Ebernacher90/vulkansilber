@@ -1151,13 +1151,14 @@ wce65:: db
 wce66:: db
 
 NEXTU
-; gfpresents, title, and intro menu timers
+; intro data
 wIntroSceneFrameCounter:: db
-UNION
 wIntroSceneTimer:: db
+
 NEXTU
+; title data
+wTitleScreenSelectedOption:: db
 wTitleScreenTimer:: dw
-ENDU
 
 NEXTU
 ; credits data
@@ -2068,10 +2069,14 @@ wScriptTextAddr::
 	ds 1
 wWildEncounterCooldown:: db
 wXYComparePointer:: dw
+
 wd17c:: flag_array 32
-wBattleScriptFlags:: dw
+
+wBattleScriptFlags:: db
+	ds 1
 wPlayerSpriteSetupFlags::
 	db
+
 wMapReentryScriptQueueFlag:: db
 wMapReentryScriptBank:: db
 wMapReentryScriptAddress:: dw

@@ -172,10 +172,10 @@ OaksPKMNTalk4:
 ; Choose a random route, and a random Pokemon from that route.
 .sample
 	call Random
-	and %11111
-	cp (OaksPKMNTalkRoutes.End - OaksPKMNTalkRoutes) / 2
+	and %11111 ; maskbits NUM_OAKS_POKEMON_TALK_ROUTES would be more efficient
+	cp NUM_OAKS_POKEMON_TALK_ROUTES
 	jr nc, .sample
-	; We now have a number between 0 and 14.
+	; We now have a number between 0 and NUM_OAKS_POKEMON_TALK_ROUTES - 1.
 	ld hl, OaksPKMNTalkRoutes
 	ld c, a
 	ld b, 0
@@ -224,7 +224,7 @@ endr
 .loop3
 	; Choose one of the middle three Pokemon.
 	call Random
-	and NUM_GRASSMON
+	maskbits NUM_GRASSMON
 	cp 2
 	jr c, .loop3
 	cp 5

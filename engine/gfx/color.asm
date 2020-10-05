@@ -79,7 +79,7 @@ Unused_CheckShininess:
 SGB_ApplyCreditsPals::
 	push de
 	push bc
-	ld hl, PalPacket_a155
+	ld hl, PalPacket_Pal01
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -95,7 +95,7 @@ SGB_ApplyCreditsPals::
 	ld [wSGBPals + 6], a
 	ld hl, wSGBPals
 	call PushSGBPals
-	ld hl, BlkPacket_9ee5
+	ld hl, BlkPacket_AllPal0
 	call PushSGBPals
 	ret
 
@@ -141,7 +141,7 @@ SGB_ApplyPartyMenuHPPals:
 	ld [hl], e
 	ret
 
-Function9102:
+Intro_LoadMagikarpPalettes:
 	call CheckCGB
 	ret z
 ; CGB only
@@ -172,16 +172,16 @@ Function9102:
 	RGB 08, 16, 28
 	RGB 00, 00, 00
 
-Function9136:
+Intro_LoadAllPal0:
 	call CheckCGB
 	ret nz
 	ldh a, [hSGB]
 	and a
 	ret z
-	ld hl, BlkPacket_9ee5
+	ld hl, BlkPacket_AllPal0
 	jp PushSGBPals
 
-Function9144: ; unreferenced
+Intro_LoadBetaIntroVenusaurPalettes: ; unreferenced
 	call CheckCGB
 	jr nz, .cgb
 	ldh a, [hSGB]
@@ -196,7 +196,7 @@ Function9144: ; unreferenced
 	call GetPredefPal
 	jp LoadHLPaletteIntoDE
 
-Function915e: ; unreferenced
+Intro_LoadPackPalettes: ; unreferenced
 	call CheckCGB
 	jr nz, .cgb
 	ldh a, [hSGB]
@@ -219,7 +219,7 @@ Intro_LoadMonPalette:
 	ret z
 	ld a, c
 	push af
-	ld hl, PalPacket_a155
+	ld hl, PalPacket_Pal01
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -243,7 +243,7 @@ Intro_LoadMonPalette:
 	call LoadPalette_White_Col1_Col2_Black
 	ret
 
-Function91b4: ; unreferenced
+LoadBetaPokerPalettes: ; unreferenced
 	ldh a, [hCGB]
 	and a
 	jr nz, .cgb
@@ -374,7 +374,7 @@ LoadMailPalettes:
 	call CheckCGB
 	jr nz, .cgb
 	push hl
-	ld hl, PalPacket_a155
+	ld hl, PalPacket_Pal01
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -391,7 +391,7 @@ LoadMailPalettes:
 	ld [wSGBPals + 6], a
 	ld hl, wSGBPals
 	call PushSGBPals
-	ld hl, BlkPacket_9ee5
+	ld hl, BlkPacket_AllPal0
 	call PushSGBPals
 	ret
 

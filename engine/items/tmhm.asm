@@ -435,7 +435,8 @@ TMHMPocket_GetCurrentLineCoord:
 	jr nz, .loop
 	ret
 
-Function2c89a: ; unreferenced
+PlaceMoveNameAfterTMHMName: ; unreferenced
+; Similar to a part of TMHM_DisplayPocketItems.
 	pop hl
 	ld bc, 3
 	add hl, bc
@@ -483,7 +484,7 @@ TMHM_PlaySFX_ReadText2:
 	pop de
 	ret
 
-Function2c8e4: ; unreferenced
+VerboseReceiveTMHM: ; unreferenced
 	call ConvertCurItemIntoCurTMHM
 	call .CheckHaveRoomForTMHM
 	ld hl, .NoRoomTMHMText
@@ -509,7 +510,7 @@ Function2c8e4: ; unreferenced
 	add hl, bc
 	ld a, [hl]
 	inc a
-	cp NUM_TMS * 2
+	cp MAX_ITEM_STACK + 1
 	ret nc
 	ld [hl], a
 	ret

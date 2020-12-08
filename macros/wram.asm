@@ -77,7 +77,6 @@ battle_struct: MACRO
 \1Species::   db
 \1Item::      db
 \1Moves::     ds NUM_MOVES
-\1MovesEnd::
 \1DVs::       dw
 \1PP::        ds NUM_MOVES
 \1Happiness:: db
@@ -217,8 +216,8 @@ hall_of_fame: MACRO
 ENDM
 
 link_battle_record: MACRO
-\1Name::   ds NAME_LENGTH - 1
 \1ID::     dw
+\1Name::   ds NAME_LENGTH - 1
 \1Wins::   dw
 \1Losses:: dw
 \1Draws::  dw
@@ -371,8 +370,8 @@ battle_anim_struct: MACRO
 ENDM
 
 battle_bg_effect: MACRO
-\1Function:: db
-\1Field01::  ds 1
-\1Field02::  ds 1
-\1Field03::  ds 1
+\1Function::       db
+\1JumptableIndex:: db
+\1BattleTurn::     db
+\1Param::          db
 ENDM

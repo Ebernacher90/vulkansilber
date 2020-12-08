@@ -160,7 +160,6 @@ _RodNothingText::
 	text "Not even a nibble!"
 	prompt
 
-; unreferenced
 _UnusedNothingHereText::
 	text "Looks like there's"
 	line "nothing here."
@@ -983,11 +982,11 @@ _OakPCText4::
 	line "OAK's PC closed."
 	done
 
-_DummyGameYeahText::
+_MemoryGameYeahText::
 	text " , yeah!"
 	done
 
-_DummyGameDarnText::
+_MemoryGameDarnText::
 	text "Darn…"
 	done
 
@@ -1265,7 +1264,7 @@ _LinkAbnormalMonText::
 
 _LinkAskTradeForText::
 	text "Trade @"
-	text_ram wceef
+	text_ram wBufferTrademonNick
 	text_start
 	line "for @"
 	text_ram wStringBuffer1

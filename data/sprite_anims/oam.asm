@@ -9,7 +9,7 @@ SpriteAnimOAMData:
 	dbw $6e, .OAMData_GSIntroShellder          ; SPRITE_ANIM_OAMSET_GS_INTRO_SHELLDER_2
 	dbw $2d, .OAMData_GSIntroMagikarp          ; SPRITE_ANIM_OAMSET_GS_INTRO_MAGIKARP_1
 	dbw $4d, .OAMData_GSIntroMagikarp          ; SPRITE_ANIM_OAMSET_GS_INTRO_MAGIKARP_2
- 	dbw $60, .OAMData_UnusedLapras             ; SPRITE_ANIM_OAMSET_GS_INTRO_UNUSED_LAPRAS
+ 	dbw $60, .OAMData_UnusedIntroAerodactyl    ; SPRITE_ANIM_OAMSET_UNUSED_INTRO_AERODACTYL
  	dbw $00, .OAMData_GSIntroLapras1           ; SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_1
  	dbw $00, .OAMData_GSIntroLapras2           ; SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_2
 	dbw $06, .OAMData_GSIntroLapras3           ; SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_3
@@ -141,7 +141,7 @@ ENDC
 	dbsprite -1,  0,  0,  0, $00, 7 | Y_FLIP
 	dbsprite  0,  0,  0,  0, $00, 7 | X_FLIP | Y_FLIP
 
-; unused
+.OAMData_Unknown1: ; unreferenced
 	db 4
 	dbsprite -1, -1,  0,  0, $00, 0 | PRIORITY
 	dbsprite  0, -1,  0,  0, $00, 0 | X_FLIP | PRIORITY
@@ -265,7 +265,7 @@ ENDC
 	dbsprite  1,  0,  4,  4, $17, 0
 	dbsprite  1,  1,  4,  4, $18, 0
 
-; unused
+.OAMData_Unknown2: ; unreferenced
 	db 36
 	dbsprite -3, -3,  0,  0, $00, 0
 	dbsprite -2, -3,  0,  0, $01, 0
@@ -355,7 +355,9 @@ ENDC
 	dbsprite -1,  0,  4,  0, $11, 1
 	dbsprite  0,  0,  4,  0, $12, 1
 
-.OAMData_UnusedLapras:
+.OAMData_UnusedIntroAerodactyl:
+; These OAM sprite definitions, with the vtile offset $60 from SpriteAnimOAMData,
+; correspond to unused Aerodactyl graphics in pokegold-spaceworld's gfx/intro/water_pokemon.png.
 	db 10
 	dbsprite -2, -2,  0,  4, $00, 0
 	dbsprite -1, -2,  0,  4, $01, 0
@@ -762,7 +764,7 @@ ELIF DEF(_SILVER)
 	dbsprite  3, -2,  0,  0, $1c, 0
 	dbsprite  4, -2,  0,  0, $1e, 0
 
-.OAMData_GSIntroLugia3:
+.OAMData_GSIntroLugia3: ; unreferenced
 	db 17
 	dbsprite -5, -2,  0,  0, $3c, 0
 	dbsprite -5,  0,  0,  0, $3e, 0
@@ -782,7 +784,7 @@ ELIF DEF(_SILVER)
 	dbsprite  3, -1,  0,  0, $56, 0
 	dbsprite  4, -1,  0,  0, $58, 0
 
-.OAMData_GSIntroLugia4:
+.OAMData_GSIntroLugia4: ; unreferenced
 	db 17
 	dbsprite -5, -2,  0,  0, $5a, 0
 	dbsprite -5,  0,  0,  0, $5c, 0
@@ -802,8 +804,7 @@ ELIF DEF(_SILVER)
 	dbsprite  3, -1,  0,  0, $74, 0
 	dbsprite  4, -1,  0,  0, $76, 0
 
-; unused / copy of intro4
-.OAMData_GSIntroLugia5:
+.OAMData_GSIntroLugia5: ; unreferenced
 	db 17
 	dbsprite -5, -2,  0,  0, $5a, 0
 	dbsprite -5,  0,  0,  0, $5c, 0

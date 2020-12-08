@@ -34,7 +34,7 @@ BattleCommand_Present:
 
 .heal_effect
 	pop bc
-	ld a, 3
+	ld a, $3 ; heal animation
 	ld [wBattleAnimParam], a
 	call AnimateCurrentMove
 	call BattleCommand_SwitchTurn
@@ -67,7 +67,7 @@ BattleCommand_Present:
 	add a
 	jr nc, .do_animation
 	call AnimateFailedMove
-	ld hl, CantReceiveGiftText
+	ld hl, PresentFailedText
 	call StdBattleTextbox
 .do_animation
 	jp EndMoveEffect

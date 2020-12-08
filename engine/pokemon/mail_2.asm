@@ -1,3 +1,17 @@
+; MailGFXPointers indexes
+; LoadMailPalettes.MailPals indexes (see gfx/mail/mail.pal)
+	const_def
+	const FLOWER_MAIL_INDEX  ; 0
+	const SURF_MAIL_INDEX    ; 1
+	const LITEBLUEMAIL_INDEX ; 2
+	const PORTRAITMAIL_INDEX ; 3
+	const LOVELY_MAIL_INDEX  ; 4
+	const EON_MAIL_INDEX     ; 5
+	const MORPH_MAIL_INDEX   ; 6
+	const BLUESKY_MAIL_INDEX ; 7
+	const MUSIC_MAIL_INDEX   ; 8
+	const MIRAGE_MAIL_INDEX  ; 9
+
 ReadPartyMonMail:
 	ld a, [wCurPartyMon]
 	ld hl, sPartyMail
@@ -16,7 +30,7 @@ ReadAnyMail:
 	call .LoadGFX
 	call EnableLCD
 	call WaitBGMap
-	ld a, [wBuffer3]
+	ld a, [wCurMailIndex]
 	ld e, a
 	farcall LoadMailPalettes
 	call SetPalettes
@@ -53,13 +67,13 @@ ReadAnyMail:
 	call OpenSRAM
 	ld de, sPartyMon1MailAuthorID - sPartyMon1Mail
 	add hl, de
+	ld a, [hli] ; author id
+	ld [wCurMailAuthorID], a
 	ld a, [hli]
-	ld [wBuffer1], a
-	ld a, [hli]
-	ld [wBuffer2], a
-	ld a, [hli]
+	ld [wCurMailAuthorID + 1], a
+	ld a, [hli] ; species
 	ld [wCurPartySpecies], a
-	ld b, [hl]
+	ld b, [hl] ; type
 	call CloseSRAM
 	ld hl, MailGFXPointers
 	ld c, 0
@@ -80,7 +94,7 @@ ReadAnyMail:
 
 .got_pointer
 	ld a, c
-	ld [wBuffer3], a
+	ld [wCurMailIndex], a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -92,6 +106,7 @@ ReadAnyMail:
 	ret
 
 MailGFXPointers:
+; entries correspond to *MAIL_INDEX constants
 	dbw FLOWER_MAIL,  LoadFlowerMailGFX
 	dbw SURF_MAIL,    LoadSurfMailGFX
 	dbw LITEBLUEMAIL, LoadLiteBlueMailGFX
@@ -102,7 +117,7 @@ MailGFXPointers:
 	dbw BLUESKY_MAIL, LoadBlueSkyMailGFX
 	dbw MUSIC_MAIL,   LoadMusicMailGFX
 	dbw MIRAGE_MAIL,  LoadMirageMailGFX
-	db -1
+	db -1 ; end
 
 LoadSurfMailGFX:
 	push bc
@@ -385,7 +400,7 @@ LoadBlueSkyMailGFX:
 	ld de, BlueSkyMailGrassGFX
 	ld c, 1 * LEN_1BPP_TILE
 	call LoadMailGFX_Color3
-	ld de, MailDragoniteGFX
+	ld de, MailDragoniteAndSentretGFX
 	ld c, 23 * LEN_1BPP_TILE
 	call LoadMailGFX_Color3
 	ld de, MailCloudGFX
@@ -678,12 +693,12 @@ MailGFX_PlaceMessage:
 	ld a, [de]
 	and a
 	ret z
-	ld a, [wBuffer3]
+	ld a, [wCurMailIndex]
 	hlcoord 8, 14
-	cp $3 ; PORTRAITMAIL
+	cp PORTRAITMAIL_INDEX
 	jr z, .place_author
 	hlcoord 6, 14
-	cp $6 ; MORPH_MAIL
+	cp MORPH_MAIL_INDEX
 	jr z, .place_author
 	hlcoord 5, 14
 
@@ -748,7 +763,7 @@ Mail_Place14TileAlternatingRow:
 	ld b, 14 / 2
 	jr Mail_PlaceAlternatingRow
 
-Mail_Place16TileAlternatingRow:
+Mail_Place16TileAlternatingRow: ; unreferenced
 	push af
 	ld b, 16 / 2
 	jr Mail_PlaceAlternatingRow
@@ -756,6 +771,7 @@ Mail_Place16TileAlternatingRow:
 Mail_Place18TileAlternatingRow:
 	push af
 	ld b, 18 / 2
+	; fallthrough
 
 Mail_PlaceAlternatingRow:
 .loop
@@ -793,16 +809,16 @@ Mail_PlaceAlternatingColumn:
 	pop af
 	ret
 
-Mail_Draw7TileRow:
-	ld b, $7
+Mail_Draw7TileRow: ; unreferenced
+	ld b, 7
 	jr Mail_DrawRowLoop
 
 Mail_Draw13TileRow:
-	ld b, $d
+	ld b, 13
 	jr Mail_DrawRowLoop
 
 Mail_Draw16TileRow:
-	ld b, $10
+	ld b, 16
 	jr Mail_DrawRowLoop
 
 Mail_DrawTopBottomBorder:
@@ -811,6 +827,7 @@ Mail_DrawTopBottomBorder:
 
 Mail_DrawFullWidthBorder:
 	ld b, SCREEN_WIDTH
+	; fallthrough
 
 Mail_DrawRowLoop:
 .loop

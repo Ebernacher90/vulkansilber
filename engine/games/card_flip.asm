@@ -1,13 +1,14 @@
 CARDFLIP_LIGHT_OFF EQU "♂" ; $ef
 CARDFLIP_LIGHT_ON  EQU "♀" ; $f5
 
-CARDFLIP_DECK_SIZE EQU 4 * 6
+CARDFLIP_DECK_SIZE EQUS "(wDeckEnd - wDeck)"
+	assert wDiscardPileEnd - wDiscardPile == wDeckEnd - wDeck
 
-; two labels below called from inside ./dummy_game.asm
-Unknown_e0908:
+MemoryGameGFX:
 ; Graphics for an unused Game Corner
 ; game were meant to be here.
-ret_e0908:
+
+UnusedCursor_InterpretJoypad_AnimateCursor:
 	ret
 
 _CardFlip:
@@ -337,7 +338,7 @@ CardFlip_ShuffleDeck:
 	cp CARDFLIP_DECK_SIZE
 	jr nc, .loop
 	ld l, a
-	ld h, $0
+	ld h, 0
 	add hl, de
 	ld a, [hl]
 	and a
@@ -577,7 +578,7 @@ CardFlip_CopyOAM:
 	jr nz, .loop
 	ret
 
-CardFlip_ShiftDigitsUpOnePixel:
+CardFlip_ShiftDigitsUpOnePixel: ; unreferenced
 ; The top rows of digits 1-9 become the bottom rows of 0-8,
 ; so this routine relies on the top rows being blank.
 	ld de, vTiles0 tile "0"

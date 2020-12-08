@@ -62,7 +62,7 @@ Phone_FindOpenSlot:
 
 GetRemainingSpaceInPhoneList:
 	xor a
-	ld [wBuffer1], a
+	ld [wRegisteredPhoneNumbers], a
 	ld hl, PermanentNumbers
 .loop
 	ld a, [hli]
@@ -76,7 +76,7 @@ GetRemainingSpaceInPhoneList:
 	ld c, a
 	call _CheckCellNum
 	jr c, .permanent
-	ld hl, wBuffer1
+	ld hl, wRegisteredPhoneNumbers
 	inc [hl]
 .permanent
 	pop hl
@@ -87,13 +87,14 @@ GetRemainingSpaceInPhoneList:
 
 .done
 	ld a, CONTACT_LIST_SIZE
-	ld hl, wBuffer1
+	ld hl, wRegisteredPhoneNumbers
 	sub [hl]
 	ret
 
 INCLUDE "data/phone/permanent_numbers.asm"
 
-FarPlaceString:
+BrokenPlaceFarString:
+; This routine is not in bank 0 and will fail or crash if called.
 	ldh a, [hROMBank]
 	push af
 	ld a, b
@@ -145,7 +146,7 @@ CheckPhoneCall::
 	farcall CheckReceiveCallTimer
 	ret
 
-; unused
+.unused ; unreferenced
 	ret
 
 FarInitCallReceiveDelay: ; unreferenced
@@ -230,7 +231,7 @@ GetAvailableCallers:
 .different_map
 	ld a, [wNumAvailableCallers]
 	ld c, a
-	ld b, $0
+	ld b, 0
 	inc a
 	ld [wNumAvailableCallers], a
 	ld hl, wAvailableCallers
@@ -444,7 +445,7 @@ Script_SpecialBillCall::
 	ld e, PHONE_BILL
 	jp LoadCallerScript
 
-LoadElmCallScript:
+Script_SpecialElmCall: ; unreferenced
 	callasm .LoadElmScript
 	pause 30
 	sjump Script_ReceivePhoneCall
@@ -459,14 +460,14 @@ RingTwice_StartCall:
 .Ring:
 	call Phone_StartRinging
 	call Phone_Wait20Frames
-	call Phone_CallerTextboxWithName
+	call .CallerTextboxWithName
 	call Phone_Wait20Frames
 	call Phone_CallerTextbox
 	call Phone_Wait20Frames
-	call Phone_CallerTextboxWithName
+	call .CallerTextboxWithName
 	ret
 
-Phone_CallerTextboxWithName:
+.CallerTextboxWithName:
 	ld a, [wCurCaller]
 	ld b, a
 	call Phone_TextboxWithName
@@ -479,19 +480,19 @@ PhoneCall::
 	ld [wPhoneCaller], a
 	ld a, d
 	ld [wPhoneCaller + 1], a
-	call Phone_Ring
+	call .Ring
 ; fallthrough (rings a second time)
-Phone_Ring:
+.Ring:
 	call Phone_StartRinging
 	call Phone_Wait20Frames
-	call Phone_CallerTextboxWithName2
+	call .CallerTextboxWithName
 	call Phone_Wait20Frames
 	call Phone_CallerTextbox
 	call Phone_Wait20Frames
-	call Phone_CallerTextboxWithName2
+	call .CallerTextboxWithName
 	ret
 
-Phone_CallerTextboxWithName2:
+.CallerTextboxWithName:
 	call Phone_CallerTextbox
 	hlcoord 1, 2
 	ld [hl], "☎"
@@ -503,7 +504,7 @@ Phone_CallerTextboxWithName2:
 	ld e, a
 	ld a, [wPhoneCaller + 1]
 	ld d, a
-	call FarPlaceString
+	call BrokenPlaceFarString
 	ret
 
 Phone_NoSignal:
@@ -723,7 +724,7 @@ PhoneJustTalkToThemText:
 	text_far _PhoneJustTalkToThemText
 	text_end
 
-PhoneThankYouTextScript:
+PhoneThankYouTextScript: ; unreferenced
 	writetext PhoneThankYouText
 	end
 

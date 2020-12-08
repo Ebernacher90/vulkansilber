@@ -10,17 +10,17 @@ _PlayerDecorationMenu:
 	push af
 	ld hl, .MenuHeader
 	call LoadMenuHeader
-	xor a
-	ld [wBuffer5], a
-	ld a, $1
-	ld [wBuffer6], a
+	xor a ; FALSE
+	ld [wChangedDecorations], a
+	ld a, $1 ; bed
+	ld [wCurDecorationCategory], a
 .top_loop
-	ld a, [wBuffer6]
+	ld a, [wCurDecorationCategory]
 	ld [wMenuCursorBuffer], a
 	call .FindCategoriesWithOwnedDecos
 	call DoNthMenu
 	ld a, [wMenuCursorY]
-	ld [wBuffer6], a
+	ld [wCurDecorationCategory], a
 	jr c, .exit_menu
 	ld a, [wMenuSelection]
 	ld hl, .pointers
@@ -31,7 +31,7 @@ _PlayerDecorationMenu:
 	call ExitMenu
 	pop af
 	ld [wWhichIndexSet], a
-	ld a, [wBuffer5]
+	ld a, [wChangedDecorations]
 	ld c, a
 	ret
 
@@ -44,7 +44,7 @@ _PlayerDecorationMenu:
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_WRAP ; flags
 	db 0 ; items
-	dw wceed
+	dw wNumOwnedDecoCategories
 	dw PlaceNthMenuStrings
 	dw .pointers
 
@@ -71,11 +71,11 @@ _PlayerDecorationMenu:
 	xor a
 	ld [wWhichIndexSet], a
 	call .ClearStringBuffer2
-	call .FindOwndDecos
+	call .FindOwnedDecos
 	ld a, 7
 	call .AppendToStringBuffer2
 	ld hl, wStringBuffer2
-	ld de, wceed
+	ld de, wDecoNameBuffer
 	ld bc, ITEM_NAME_LENGTH
 	call CopyBytes
 	ret
@@ -98,7 +98,7 @@ _PlayerDecorationMenu:
 	ld [hl], a
 	ret
 
-.FindOwndDecos:
+.FindOwnedDecos:
 	ld hl, .dw
 .loop
 	ld a, [hli]
@@ -133,10 +133,11 @@ _PlayerDecorationMenu:
 
 Deco_FillTempWithMinusOne:
 	xor a
-	ld hl, wceed
+	ld hl, wNumOwnedDecoCategories
 	ld [hli], a
+	assert wNumOwnedDecoCategories + 1 == wOwnedDecoCategories
 	ld a, -1
-	ld bc, $10
+	ld bc, 16
 	call ByteFill
 	ret
 
@@ -161,10 +162,11 @@ CheckAllDecorationFlags:
 	ret
 
 AppendDecoIndex:
-	ld hl, wceed
+	ld hl, wNumOwnedDecoCategories
 	inc [hl]
+	assert wNumOwnedDecoCategories + 1 == wOwnedDecoCategories
 	ld e, [hl]
-	ld d, $0
+	ld d, 0
 	add hl, de
 	ld [hl], a
 	ret
@@ -176,7 +178,7 @@ FindOwnedDecosInCategory:
 	pop hl
 	call CheckAllDecorationFlags
 	pop bc
-	ld a, [wceed]
+	ld a, [wNumOwnedDecoCategories]
 	and a
 	ret z
 
@@ -335,7 +337,7 @@ DecoExitMenu:
 	ret
 
 PopulateDecoCategoryMenu:
-	ld a, [wceed]
+	ld a, [wNumOwnedDecoCategories]
 	and a
 	jr z, .empty
 	cp 8
@@ -353,9 +355,10 @@ PopulateDecoCategoryMenu:
 	ret
 
 .beyond_eight
-	ld hl, wceed
+	ld hl, wNumOwnedDecoCategories
 	ld e, [hl]
 	dec [hl]
+	assert wNumOwnedDecoCategories + 1 == wOwnedDecoCategories
 	ld d, 0
 	add hl, de
 	ld [hl], -1
@@ -395,7 +398,7 @@ PopulateDecoCategoryMenu:
 .NonscrollingMenuData:
 	db STATICMENU_CURSOR | STATICMENU_WRAP ; flags
 	db 0 ; items
-	dw wceed
+	dw wDecoNameBuffer
 	dw DecorationMenuFunction
 	dw DecorationAttributes
 
@@ -409,10 +412,10 @@ PopulateDecoCategoryMenu:
 	db SCROLLINGMENU_DISPLAY_ARROWS ; flags
 	db 8, 0 ; rows, columns
 	db SCROLLINGMENU_ITEMS_NORMAL ; item format
-	dbw 0, wceed ; text pointer
+	dbw 0, wDecoNameBuffer ; text pointer
 	dba DecorationMenuFunction
-	dbw 0, 0
-	dbw 0, 0
+	dbw 0, NULL
+	dbw 0, NULL
 
 GetDecorationData:
 	ld hl, DecorationAttributes
@@ -632,12 +635,12 @@ DecoAction_putawaybigdoll:
 
 DecoAction_TrySetItUp:
 	ld a, [hl]
-	ld [wBuffer1], a
+	ld [wCurDecoration], a
 	push hl
 	call DecoAction_SetItUp
 	jr c, .failed
-	ld a, 1
-	ld [wBuffer5], a
+	ld a, TRUE
+	ld [wChangedDecorations], a
 	pop hl
 	ld a, [wMenuSelection]
 	ld [hl], a
@@ -651,7 +654,7 @@ DecoAction_TrySetItUp:
 
 DecoAction_SetItUp:
 ; See if there's anything of the same type already out
-	ld a, [wBuffer1]
+	ld a, [wCurDecoration]
 	and a
 	jr z, .nothingthere
 ; See if that item is already out
@@ -663,7 +666,7 @@ DecoAction_SetItUp:
 	ld a, [wMenuSelection]
 	ld hl, wStringBuffer4
 	call GetDecorationName
-	ld a, [wBuffer1]
+	ld a, [wCurDecoration]
 	ld hl, wStringBuffer3
 	call GetDecorationName
 	ld hl, PutAwayAndSetUpText
@@ -689,16 +692,16 @@ DecoAction_SetItUp:
 DecoAction_TryPutItAway:
 ; If there is no item of that type already set, there is nothing to put away.
 	ld a, [hl]
-	ld [wBuffer1], a
+	ld [wCurDecoration], a
 	xor a
 	ld [hl], a
-	ld a, [wBuffer1]
+	ld a, [wCurDecoration]
 	and a
 	jr z, .nothingthere
 ; Put it away.
-	ld a, $1
-	ld [wBuffer5], a
-	ld a, [wBuffer1]
+	ld a, TRUE
+	ld [wChangedDecorations], a
+	ld a, [wCurDecoration]
 	ld [wMenuSelection], a
 	ld hl, wStringBuffer3
 	call GetDecorationName
@@ -719,8 +722,8 @@ DecoAction_setupornament:
 	jr c, .cancel
 	call DecoAction_SetItUp_Ornament
 	jr c, .cancel
-	ld a, $1
-	ld [wBuffer5], a
+	ld a, TRUE
+	ld [wChangedDecorations], a
 	jr DecoAction_FinishUp_Ornament
 
 .cancel
@@ -806,8 +809,8 @@ DecoAction_PutItAway_Ornament:
 	jr z, .nothingthere
 	ld hl, wStringBuffer3
 	call GetDecorationName
-	ld a, $1
-	ld [wBuffer5], a
+	ld a, TRUE
+	ld [wChangedDecorations], a
 	xor a
 	ld [wSelectedDecoration], a
 	ld hl, PutAwayTheDecoText
@@ -833,9 +836,9 @@ DecoAction_AskWhichSide:
 	call CopyMenuData
 	jr c, .nope
 	ld a, [wMenuCursorY]
-	cp 3
+	cp 3 ; cancel
 	jr z, .nope
-	ld [wBuffer2], a
+	ld [wSelectedDecorationSide], a
 	call QueryWhichSide
 	ld a, [hl]
 	ld [wSelectedDecoration], a
@@ -851,9 +854,10 @@ DecoAction_AskWhichSide:
 QueryWhichSide:
 	ld hl, wDecoRightOrnament
 	ld de, wDecoLeftOrnament
-	ld a, [wBuffer2]
-	cp 1
+	ld a, [wSelectedDecorationSide]
+	cp 1 ; right side
 	ret z
+	; left side, swap hl and de
 	push hl
 	ld h, d
 	ld l, e
@@ -932,7 +936,7 @@ GetDecorationID:
 	pop hl
 	ret
 
-SetAllDecorationFlags:
+SetAllDecorationFlags: ; unreferenced
 	ld hl, DecorationIDs
 .loop
 	ld a, [hli]

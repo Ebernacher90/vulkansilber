@@ -15,7 +15,7 @@ Special::
 
 INCLUDE "data/events/special_pointers.asm"
 
-DummySpecial_c389:
+UnusedDummySpecial:
 	ret
 
 GameCornerPrizeMonCheckDex:
@@ -81,13 +81,12 @@ NameRival:
 	ld b, NAME_RIVAL
 	ld de, wRivalName
 	farcall _NamingScreen
-	; default to "SILVER"
 	ld hl, wRivalName
-	ld de, .default
+	ld de, .DefaultName
 	call InitName
 	ret
 
-.default
+.DefaultName:
 IF DEF(_GOLD)
 	db "SILVER@"
 ELIF DEF(_SILVER)
@@ -205,11 +204,11 @@ CardFlip:
 	call StartGameCornerGame
 	ret
 
-DummyNonfunctionalGameCornerGame:
+UnusedMemoryGame:
 	call CheckCoinsAndCoinCase
 	ret c
-	ld a, BANK(_DummyGame)
-	ld hl, _DummyGame
+	ld a, BANK(_MemoryGame)
+	ld hl, _MemoryGame
 	call StartGameCornerGame
 	ret
 
@@ -414,17 +413,17 @@ GameboyCheck:
 	ldh a, [hCGB]
 	and a
 	jr nz, .cgb
-
 	ldh a, [hSGB]
 	and a
 	jr nz, .sgb
-
-.gb
+; gb
 	xor a ; GBCHECK_GB
 	jr .done
+
 .sgb
 	ld a, GBCHECK_SGB
 	jr .done
+
 .cgb
 	ld a, GBCHECK_CGB
 .done
@@ -459,5 +458,4 @@ TrainerHouse:
 	ld [wScriptVar], a
 	jp CloseSRAM
 
-; unused
-	nop
+	nop ; unused

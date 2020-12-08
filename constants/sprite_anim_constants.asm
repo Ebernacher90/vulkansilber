@@ -19,13 +19,28 @@
 SPRITEANIMSTRUCT_LENGTH EQU const_value
 NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 
+; wSpriteAnimDict keys (see wram.asm)
+; UnusedSpriteAnimGFX indexes (see data/sprite_anims/unused_gfx.asm)
+	const_def
+	const SPRITE_ANIM_DICT_DEFAULT      ; 0
+	const SPRITE_ANIM_DICT_GS_INTRO     ; 1
+	const SPRITE_ANIM_DICT_GS_INTRO_2   ; 2
+	const_skip 2                        ; unused
+	const SPRITE_ANIM_DICT_TEXT_CURSOR  ; 5
+	const SPRITE_ANIM_DICT_GS_SPLASH    ; 6
+	const SPRITE_ANIM_DICT_SLOTS        ; 7
+	const SPRITE_ANIM_DICT_ARROW_CURSOR ; 8
+
+; wSpriteAnimDict size (see wram.asm)
+NUM_SPRITEANIMDICT_ENTRIES EQU 10
+
 ; SpriteAnimSeqData indexes (see data/sprite_anims/sequences.asm)
 	const_def
 	const SPRITE_ANIM_INDEX_PARTY_MON                 ; 00
 	const SPRITE_ANIM_INDEX_GS_INTRO_BUBBLE           ; 01
 	const SPRITE_ANIM_INDEX_GS_INTRO_SHELLDER         ; 02
 	const SPRITE_ANIM_INDEX_GS_INTRO_MAGIKARP         ; 03
-	const SPRITE_ANIM_INDEX_UNUSED_LAPRAS             ; 04
+	const SPRITE_ANIM_INDEX_UNUSED_INTRO_AERODACTYL   ; 04
 	const SPRITE_ANIM_INDEX_GS_INTRO_LAPRAS           ; 05
 	const SPRITE_ANIM_INDEX_GS_INTRO_NOTE             ; 06
 	const SPRITE_ANIM_INDEX_GS_INTRO_INVISIBLE_NOTE   ; 07
@@ -51,7 +66,7 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_INDEX_COMPOSE_MAIL_CURSOR       ; 1b
 	const SPRITE_ANIM_INDEX_RED_WALK                  ; 1c
 	const SPRITE_ANIM_INDEX_UNUSED_CURSOR             ; 1d
-	const SPRITE_ANIM_INDEX_DUMMY_GAME                ; 1e
+	const SPRITE_ANIM_INDEX_MEMORY_GAME_CURSOR        ; 1e
 	const SPRITE_ANIM_INDEX_POKEGEAR_ARROW            ; 1f
 	const SPRITE_ANIM_INDEX_TRADE_POKE_BALL           ; 20
 	const SPRITE_ANIM_INDEX_TRADE_POOF                ; 21
@@ -78,7 +93,7 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_SEQ_GS_INTRO_BUBBLE             ; 04
 	const SPRITE_ANIM_SEQ_GS_INTRO_SHELLDER           ; 05
 	const SPRITE_ANIM_SEQ_GS_INTRO_MAGIKARP           ; 06
-	const SPRITE_ANIM_SEQ_UNUSED_LAPRAS               ; 07
+	const SPRITE_ANIM_SEQ_UNUSED_INTRO_AERODACTYL     ; 07
 	const SPRITE_ANIM_SEQ_GS_INTRO_LAPRAS             ; 08
 	const SPRITE_ANIM_SEQ_GS_INTRO_NOTE               ; 09
 	const SPRITE_ANIM_SEQ_GS_INTRO_JIGGLYPUFF         ; 0a
@@ -101,7 +116,7 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_SEQ_SLOTS_EGG                   ; 1b
 	const SPRITE_ANIM_SEQ_MAIL_CURSOR                 ; 1c
 	const SPRITE_ANIM_SEQ_UNUSED_CURSOR               ; 1d
-	const SPRITE_ANIM_SEQ_DUMMY_GAME_CURSOR           ; 1e
+	const SPRITE_ANIM_SEQ_MEMORY_GAME_CURSOR          ; 1e
 	const SPRITE_ANIM_SEQ_POKEGEAR_ARROW              ; 1f
 	const SPRITE_ANIM_SEQ_TRADE_POKE_BALL             ; 20
 	const SPRITE_ANIM_SEQ_TRADE_TUBE_BULGE            ; 21
@@ -123,7 +138,7 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_FRAMESET_GS_INTRO_BUBBLE           ; 04
 	const SPRITE_ANIM_FRAMESET_GS_INTRO_SHELLDER         ; 05
 	const SPRITE_ANIM_FRAMESET_GS_INTRO_MAGIKARP         ; 06
-	const SPRITE_ANIM_FRAMESET_UNUSED_LAPRAS             ; 07
+	const SPRITE_ANIM_FRAMESET_UNUSED_INTRO_AERODACTYL   ; 07
 	const SPRITE_ANIM_FRAMESET_GS_INTRO_LAPRAS           ; 08
 	const SPRITE_ANIM_FRAMESET_GS_INTRO_NOTE             ; 09
 	const SPRITE_ANIM_FRAMESET_GS_INTRO_INVISIBLE_NOTE   ; 0a
@@ -183,7 +198,7 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_OAMSET_GS_INTRO_SHELLDER_2         ; 05
 	const SPRITE_ANIM_OAMSET_GS_INTRO_MAGIKARP_1         ; 06
 	const SPRITE_ANIM_OAMSET_GS_INTRO_MAGIKARP_2         ; 07
-	const SPRITE_ANIM_OAMSET_GS_INTRO_UNUSED_LAPRAS      ; 08
+	const SPRITE_ANIM_OAMSET_UNUSED_INTRO_AERODACTYL     ; 08
 	const SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_1           ; 09
 	const SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_2           ; 0a
 	const SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_3           ; 0b

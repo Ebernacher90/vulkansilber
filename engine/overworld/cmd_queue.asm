@@ -134,7 +134,7 @@ HandleQueuedCommand:
 	dba CmdQueue_Type3
 	dba CmdQueue_Type4
 
-CmdQueueAnonymousJumptable:
+CmdQueues_AnonJumptable:
 	ld hl, CMDQUEUE_05
 	add hl, bc
 	ld a, [hl]
@@ -142,13 +142,13 @@ CmdQueueAnonymousJumptable:
 	rst JumpTable
 	ret
 
-CmdQueueAnonJT_Increment:
+CmdQueues_IncAnonJumptableIndex:
 	ld hl, CMDQUEUE_05
 	add hl, bc
 	inc [hl]
 	ret
 
-CmdQueueAnonJT_Decrement:
+CmdQueues_DecAnonJumptableIndex: ; unreferenced
 	ld hl, CMDQUEUE_05
 	add hl, bc
 	dec [hl]
@@ -162,8 +162,8 @@ CmdQueue_Type1:
 	ret
 
 CmdQueue_Type4:
-	call CmdQueueAnonymousJumptable
-	; anonymous dw
+	call CmdQueues_AnonJumptable
+.anon_dw
 	dw .zero
 	dw .one
 
@@ -172,7 +172,7 @@ CmdQueue_Type4:
 	ld hl, CMDQUEUE_04
 	add hl, bc
 	ld [hl], a
-	call CmdQueueAnonJT_Increment
+	call CmdQueues_IncAnonJumptableIndex
 .one
 	ld hl, CMDQUEUE_ADDR
 	add hl, bc

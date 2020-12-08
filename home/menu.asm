@@ -194,7 +194,7 @@ PlaceVerticalMenuItems::
 	ld a, [de]
 	ld c, a
 	inc de
-	ld b, $0
+	ld b, 0
 	add hl, bc
 	jp PlaceString
 
@@ -251,6 +251,7 @@ MenuBoxCoord2Tile::
 	ld c, a
 	ld a, [wMenuBorderTopCoord]
 	ld b, a
+	; fallthrough
 
 Coord2Tile::
 ; Return the address of wTilemap(c, b) in hl.
@@ -294,7 +295,7 @@ MenuTextbox::
 	pop hl
 	jp PrintText
 
-; unused
+Menu_DummyFunction:: ; unreferenced
 	ret
 
 LoadMenuTextbox::
@@ -634,7 +635,7 @@ ContinueGettingMenuJoypad:
 	call GetMenuIndexSet
 	ld a, [wMenuCursorY]
 	ld l, a
-	ld h, $0
+	ld h, 0
 	add hl, de
 	ld a, [hl]
 	ld [wMenuSelection], a
@@ -697,7 +698,7 @@ MenuJumptable::
 
 GetMenuDataPointerTableEntry::
 	ld e, a
-	ld d, $0
+	ld d, 0
 	ld hl, wMenuDataPointerTableAddr
 	ld a, [hli]
 	ld h, [hl]

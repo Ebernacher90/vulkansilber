@@ -160,7 +160,7 @@ DayCareAskDepositPokemon:
 	scf
 	ret
 
-.DaycareDummyText:
+.DaycareDummyText: ; unreferenced
 	text_far _DaycareDummyText
 	text_end
 
@@ -610,8 +610,8 @@ DayCare_InitBreeding:
 	xor a
 	ld [wEggMonItem], a
 	ld de, wEggMonMoves
-	xor a
-	ld [wBuffer1], a
+	xor a ; FALSE
+	ld [wSkipMovesBeforeLevelUp], a
 	predef FillMoves
 	farcall InitEggMoves
 	ld hl, wEggMonID

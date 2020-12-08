@@ -212,7 +212,7 @@ DoTradeAnimation:
 	jr nz, .finished
 	call .DoTradeAnimCommand
 	callfar PlaySpriteAnimations
-	ld hl, wce65
+	ld hl, wFrameCounter2
 	inc [hl]
 	call DelayFrame
 	and a
@@ -1269,7 +1269,7 @@ LinkTradeAnim_LoadTradeMonSpecies:
 	ret
 
 TradeAnim_FlashBGPals:
-	ld a, [wce65]
+	ld a, [wFrameCounter2]
 	and $7
 	ret nz
 	ldh a, [rBGP]
@@ -1291,7 +1291,7 @@ LoadTradeBallAndCableGFX:
 	ld hl, vTiles0 tile $74
 	lb bc, BANK(TradeCableGFX), 4
 	call Request2bpp
-	xor a
+	xor a ; SPRITE_ANIM_DICT_DEFAULT
 	ld hl, wSpriteAnimDict
 	ld [hli], a
 	ld [hl], $62

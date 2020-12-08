@@ -192,7 +192,7 @@ SentAllToMomText:
 	text "Sent all to MOM!"
 	prompt
 
-BattleText_0x101415:
+UnusedRivalLossText: ; unreferenced
 	text "<RIVAL>: Huh? I"
 	line "should've chosen"
 	cont "your #MON!"
@@ -208,7 +208,7 @@ BattleText_UseNextMon:
 	text "Use next #MON?"
 	done
 
-BattleText_0x101459:
+UnusedRivalWinText: ; unreferenced
 	text "<RIVAL>: Yes!"
 	line "I guess I chose a"
 	cont "good #MON!"
@@ -340,7 +340,7 @@ BattleText_StringBuffer1GrewToLevel:
 	text_decimal wCurPartyLevel, 1, 3
 	text "!@"
 	sound_dex_fanfare_50_79
-	db "@"
+	text_end
 
 BattleText_WildMonIsEating:
 	text "Wild @"
@@ -1073,7 +1073,7 @@ BeatUpAttackText:
 
 ; BUG: Pokémon names 8-10 characters long can overflow the textbox,
 ; printing as "Enemy 1234567890 can't": up to 21 characters, over 18.
-CantReceiveGiftText:
+PresentFailedText:
 	text "<TARGET> can't"
 	line "receive the gift!"
 	prompt

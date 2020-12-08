@@ -300,12 +300,8 @@ SECTION "Move Animations", ROMX
 INCLUDE "engine/events/bug_contest/display_stats.asm"
 INCLUDE "engine/battle_anims/anim_commands.asm"
 INCLUDE "engine/battle_anims/core.asm"
-INCLUDE "data/battle_anims/objects.asm"
 INCLUDE "engine/battle_anims/functions.asm"
 INCLUDE "engine/battle_anims/helpers.asm"
-INCLUDE "data/battle_anims/framesets.asm"
-INCLUDE "data/battle_anims/oam.asm"
-INCLUDE "data/battle_anims/object_gfx.asm"
 
 
 SECTION "Font Inversed", ROMX
@@ -320,7 +316,7 @@ INCLUDE "engine/events/diploma.asm"
 INCLUDE "engine/events/print_unown_2.asm"
 INCLUDE "engine/games/card_flip.asm"
 INCLUDE "engine/games/unown_puzzle.asm"
-INCLUDE "engine/games/dummy_game.asm"
+INCLUDE "engine/games/memory_game.asm"
 INCLUDE "engine/pokemon/bills_pc.asm"
 
 
@@ -350,7 +346,7 @@ INCLUDE "engine/movie/intro.asm"
 SECTION "bank3E", ROMX
 
 INCLUDE "engine/gfx/load_font.asm"
-INCLUDE "data/collision_permissions.asm"
+INCLUDE "data/collision/collision_permissions.asm"
 
 Shrink1Pic:
 INCBIN "gfx/new_game/shrink1.2bpp.lz"
@@ -381,7 +377,6 @@ INCLUDE "engine/debug/color_picker.asm"
 SECTION "Standard Scripts", ROMX
 
 INCLUDE "engine/events/std_scripts.asm"
-INCLUDE "data/text/std_text.asm"
 INCLUDE "data/text/battle.asm"
 
 
